@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ICI.ProvaCandidato.Dados.Repositories
 {
@@ -8,7 +8,10 @@ namespace ICI.ProvaCandidato.Dados.Repositories
         [Key]
         public int Id { get; set; }
 
-        [Column(TypeName = "varchar(100)")]
+        [Required]
+        [StringLength(100)]
         public string Descricao { get; set; }
+
+        public List<NoticiaTag> NoticiasTags { get; set; }
     }
 }

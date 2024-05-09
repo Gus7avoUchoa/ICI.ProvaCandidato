@@ -8,10 +8,12 @@ namespace ICI.ProvaCandidato.Dados.Repositories
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("NoticiaId")]
+        [ForeignKey("Noticia")]
         public int NoticiaId { get; set; }
+        public Noticia Noticia { get; set; }
 
-        [ForeignKey("TagId")]
+        [ForeignKey("Tag")]
         public int TagId { get; set; }
+        public Tag Tag { get; set; }
     }
 }
