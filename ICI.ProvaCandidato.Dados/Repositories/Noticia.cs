@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ICI.ProvaCandidato.Dados.Repositories
 {
-    internal class Noticia
+    public class Noticia
     {
         [Key]
         public int Id { get; set; }
