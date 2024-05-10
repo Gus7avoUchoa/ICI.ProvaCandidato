@@ -7,6 +7,7 @@ using ICI.ProvaCandidato.Dados.Context;
 using ICI.ProvaCandidato.Negocio.Interfaces;
 using ICI.ProvaCandidato.Negocio.Services;
 using ICI.ProvaCandidato.Dados.Repositories;
+using ICI.ProvaCandidato.Negocio.Mappers;
 
 namespace ICI.ProvaCandidato.Web
 {
@@ -27,9 +28,13 @@ namespace ICI.ProvaCandidato.Web
 			
 			// Camada de Negócio
 			services.AddScoped<ITagService, TagService>();
+			services.AddScoped<INoticiaService, NoticiaService>();
 			
 			// Camada de Dados
 			services.AddScoped<TagRepository>();
+			services.AddScoped<NoticiaRepository>();
+
+			services.AddAutoMapper(typeof(AutoMapperProfile));
 			
 			services.AddControllersWithViews();
 		}

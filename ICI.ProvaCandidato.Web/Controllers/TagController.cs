@@ -1,4 +1,4 @@
-﻿using ICI.ProvaCandidato.Dados.Entities;
+﻿using ICI.ProvaCandidato.Negocio.DTOs;
 using ICI.ProvaCandidato.Negocio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -14,10 +14,11 @@ namespace ICI.ProvaCandidato.Web.Controllers
             _tagService = tagService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchTerm = null)
         {
             ViewData["Title"] = "Lista de Tags";
-            var tags = await _tagService.GetAllAsync();
+            var tags = await _tagService.GetAllAsync(searchTerm);
+            ViewData["CurrentFilter"] = searchTerm;
             return View(tags);
         }
 
@@ -28,14 +29,14 @@ namespace ICI.ProvaCandidato.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Tag tag)
+        public async Task<IActionResult> Create(TagDto tagDto)
         {
             if (ModelState.IsValid)
             {
-                await _tagService.CreateAsync(tag);
+                await _tagService.CreateAsync(tagDto);
                 return RedirectToAction(nameof(Index));
             }
-            return View("Form", tag);
+            return View("Form", tagDto);
         }
 
         public async Task<IActionResult> Edit(int id)
@@ -47,14 +48,14 @@ namespace ICI.ProvaCandidato.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(Tag tag)
+        public async Task<IActionResult> Edit(TagDto tagDto)
         {
             if (ModelState.IsValid)
             {
-                await _tagService.UpdateAsync(tag);
+                await _tagService.UpdateAsync(tagDto);
                 return RedirectToAction(nameof(Index));
             }
-            return View("Form", tag);
+            return View("Form", tagDto);
         }
 
         public async Task<IActionResult> Delete(int id)
@@ -66,9 +67,9 @@ namespace ICI.ProvaCandidato.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(Tag tag)
+        public async Task<IActionResult> Delete(TagDto tagDto)
         {
-            await _tagService.DeleteAsync(tag.Id);
+            await _tagService.DeleteAsync(tagDto.Id);
             return RedirectToAction(nameof(Index));
         }
     }

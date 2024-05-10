@@ -9,6 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ICI.ProvaCandidato.Dados\ICI.ProvaCandidato.Dados.csproj" />
   </ItemGroup>
 

@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using ICI.ProvaCandidato.Negocio.DTOs;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using ICI.ProvaCandidato.Dados.Entities;
 
 namespace ICI.ProvaCandidato.Negocio.Interfaces
 {
     public interface INoticiaService
     {
-        Task<IEnumerable<Noticia>> GetAllAsync();
-        Task<Noticia> GetByIdAsync(int id);
-        Task<Noticia> CreateAsync(Noticia noticia);
-        Task<Noticia> UpdateAsync(Noticia noticia);
+        Task<IEnumerable<NoticiaDto>> GetAllAsync(string searchTerm = null);
+        Task<NoticiaDto> GetByIdAsync(int id);
+        Task<NoticiaDto> CreateAsync(NoticiaDto noticia);
+        Task<NoticiaDto> UpdateAsync(NoticiaDto noticia);
         Task DeleteAsync(int id);
     }
 }
