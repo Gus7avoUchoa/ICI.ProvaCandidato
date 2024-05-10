@@ -1,51 +1,51 @@
 ﻿@model List<ICI.ProvaCandidato.Dados.Entities.Tag>
 
-@{
-    ViewData["Title"] = @ViewData["Title"];
-}
-
-@if (Model.Count > 0)
+@if (Model != null && Model.Count > 0)
 {
     <div class="text-center">
         <h1>@ViewData["Title"]</h1>
         <br />
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model[0].Id)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model[0].Descricao)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Id)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Descricao)
-                        </td>
-                        <td>
-                            <a asp-action="Editar" class="btn btn-success" asp-route-id="@item.Id">Editar</a>
-                            <a asp-action="Detalhes" class="btn btn-warning" asp-route-id="@item.Id">Detalhes</a>
-                            <a asp-action="Excluir" class="btn btn-danger" asp-route-id="@item.Id">Excluir</a>
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].Id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].Descricao)
+                        </th>
+                        <th></th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descricao)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.Id">Editar</a>
+                                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Excluir</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 }
 else
 {
     <div class="text-center">
-        <h1>Nenhuma tag cadastrada</h1>
+        <h2>Nenhuma tag cadastrada</h2>
     </div>
 }
+<div>
+    <a asp-action="Create" class="btn btn-primary">Nova Tag</a>
+</div>
