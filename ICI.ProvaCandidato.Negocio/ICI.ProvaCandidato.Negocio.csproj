@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
+    <Folder Include="Validators\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ICI.ProvaCandidato.Dados\ICI.ProvaCandidato.Dados.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ICI.ProvaCandidato.Dados.Repositories
-{
-    public class NoticiaTag
+namespace ICI.ProvaCandidato.Dados.Entities
+{    public class NoticiaTag
     {
         [Key]
         public int Id { get; set; }

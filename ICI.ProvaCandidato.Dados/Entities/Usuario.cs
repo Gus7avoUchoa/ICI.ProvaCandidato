@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ICI.ProvaCandidato.Dados.Repositories
-{
-    public class Usuario
+namespace ICI.ProvaCandidato.Dados.Entities
+{    public class Usuario
     {
         [Key]
         public int Id { get; set; }

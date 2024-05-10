@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ICI.ProvaCandidato.Dados.Repositories
+namespace ICI.ProvaCandidato.Dados.Entities
 {
     public class Tag
     {

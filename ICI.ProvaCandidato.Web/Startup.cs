@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ICI.ProvaCandidato.Dados.Context;
 using Microsoft.EntityFrameworkCore;
+using ICI.ProvaCandidato.Dados.Repositories;
 
 namespace ICI.ProvaCandidato.Web
 {

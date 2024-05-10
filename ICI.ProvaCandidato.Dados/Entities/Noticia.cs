@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ICI.ProvaCandidato.Dados.Repositories
+namespace ICI.ProvaCandidato.Dados.Entities
 {
     public class Noticia
     {
