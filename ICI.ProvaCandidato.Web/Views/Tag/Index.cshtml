@@ -40,8 +40,7 @@
                             </td>
                             @* Separar Componente *@
                             <td>
-                                <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.Id">Editar</a>
-                                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Excluir</a>
+                                @await Html.PartialAsync("_ActionButtonsIndex", item.Id)
                             </td>
                         </tr>
                     }

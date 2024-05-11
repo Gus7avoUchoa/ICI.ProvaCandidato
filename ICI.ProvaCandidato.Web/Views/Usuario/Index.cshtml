@@ -1,4 +1,4 @@
-﻿@model List<ICI.ProvaCandidato.Negocio.DTOs.NoticiaDto>
+﻿@model List<ICI.ProvaCandidato.Negocio.DTOs.UsuarioDto>
 
 @if (Model != null && Model.Count > 0)
 {
@@ -8,7 +8,7 @@
 
         <form asp-action="Index" method="get">
             <div class="form-group">
-                <input type="text" name="searchTerm" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Pesquisar Notícias" />
+                <input type="text" name="searchTerm" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Pesquisar Usuários" />
                 <br />
                 <button type="submit" class="btn btn-primary">Pesquisar</button>
                 @* <button type="button" class="btn btn-secondary">Limpar</button> *@
@@ -23,14 +23,14 @@
                             @Html.DisplayNameFor(model => model[0].Id)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model[0].Titulo)
+                            @Html.DisplayNameFor(model => model[0].Nome)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model[0].Texto)
+                            @Html.DisplayNameFor(model => model[0].Email)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model[0].Usuario)
-                        </th>                        
+                            @Html.DisplayNameFor(model => model[0].Senha)
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -42,13 +42,13 @@
                                 @Html.DisplayFor(modelItem => item.Id)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Titulo)
+                                @Html.DisplayFor(modelItem => item.Nome)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Texto)
+                                @Html.DisplayFor(modelItem => item.Email)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.UsuarioId)
+                                @Html.DisplayFor(modelItem => item.Senha)
                             </td>
                             <td>
                                 @await Html.PartialAsync("_ActionButtonsIndex", item.Id)
@@ -63,9 +63,10 @@
 else
 {
     <div class="text-center">
-        <h2>Nenhuma notícia cadastrada</h2>
+        <h2>Nenhum usuário cadastrado</h2>
     </div>
 }
 <div>
-    <a asp-action="Create" class="btn btn-primary">Nova Notícia</a>
+    <a asp-action="Create" class="btn btn-primary">Novo usuário</a>
 </div>
+

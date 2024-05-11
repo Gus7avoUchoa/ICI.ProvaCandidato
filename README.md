@@ -21,24 +21,24 @@ Deve ser criado entidades e utilizar Migrations para estruturar os dados no banc
    - [x] Implementar as telas de cadastro e edição de Tags.
 
 3. 🔍 Pesquisa de Tags
-   - [ ] Na tela de visualização de Tags, desenvolver um campo de pesquisa por descrição da Tag.
-   - [ ] Exibir o conteúdo correspondente na tabela de visualização.
+   - [x] Na tela de visualização de Tags, desenvolver um campo de pesquisa por descrição da Tag.
+   - [x] Exibir o conteúdo correspondente na tabela de visualização.
 
 4. ❌ Exclusão de Tags
-   - [ ] Validar se uma Tag está vinculada a uma notícia antes de excluir.
-   - [ ] Retornar uma mensagem informando que não foi possível excluir caso haja o vínculo.
+   - [x] Validar se uma Tag está vinculada a uma notícia antes de excluir.
+   - [x] Retornar uma mensagem informando que não foi possível excluir caso haja o vínculo.
 
 5. 📰 Visualização de Notícias
-   - [ ] Desenvolver a tela de visualização das notícias cadastradas em forma de tabela.
-   - [ ] A tabela deve ter uma coluna para cada informação da notícia.
+   - [x] Desenvolver a tela de visualização das notícias cadastradas em forma de tabela.
+   - [x] A tabela deve ter uma coluna para cada informação da notícia.
 
 6. ✏️Cadastro e Edição de Notícias
-   - [ ] Desenvolver a tela de cadastro e edição de notícia.
-     - [ ] Permitir cadastrar e editar todas as informações da notícia e vincular uma lista de Tags a este cadastro.
-     - [ ] Implementar função de exclusão.
+   - [x] Desenvolver a tela de cadastro e edição de notícia.
+     - [x] Permitir cadastrar e editar todas as informações da notícia e vincular uma lista de Tags a este cadastro.
+     - [x] Implementar função de exclusão.
 
 7. 🧼 Funcionalidade de Limpeza de Formulário
-   - [ ] Na tela de cadastro e edição, implementar um botão que limpe os campos do formulário, executando essa ação com Javascript.
+   - [x] Na tela de cadastro e edição, implementar um botão que limpe os campos do formulário, executando essa ação com Javascript.
 
 8. ✔️ Validações
    - [ ] Realize validações Server-Side e também em Javascript antes de salvar o registro.

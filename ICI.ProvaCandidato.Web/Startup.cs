@@ -29,10 +29,12 @@ namespace ICI.ProvaCandidato.Web
 			// Camada de Negócio
 			services.AddScoped<ITagService, TagService>();
 			services.AddScoped<INoticiaService, NoticiaService>();
+			services.AddScoped<IUsuarioService, UsuarioService>();
 			
 			// Camada de Dados
 			services.AddScoped<TagRepository>();
 			services.AddScoped<NoticiaRepository>();
+			services.AddScoped<UsuarioRepository>();
 
 			services.AddAutoMapper(typeof(AutoMapperProfile));
 			

@@ -2,7 +2,79 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <h2>A Anna Carlla vai fazer um ótimo <strong>jantar </strong> hoje, e logo depois fará a <strong>massagem</strong> que está devendo.</h2>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Prático de Desenvolvimento .NET</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .check {
+            color: green;
+        }
+
+        .close {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Teste Prático de Desenvolvimento .NET</h1>
+        <h2>Visão Geral</h2>
+        <p>Teste prático para avaliar as habilidades de desenvolvimento .NET de Gustavo Uchôa, utilizando .NET 5 (.NET Core MVC) e VS2019. O foco está nas capacidades de back-end e front-end, incluindo Javascript.</p>
+
+        <h2>Estrutura do Projeto</h2>
+        <p>O projeto <strong>ICI.ProvaCandidato</strong> é dividido em três camadas:</p>
+        <ul>
+            <li><strong>Apresentação</strong>: ICI.ProvaCandidato.Web</li>
+            <li><strong>Negócio</strong>: ICI.ProvaCandidato.Negocio</li>
+            <li><strong>Dados</strong>: ICI.ProvaCandidato.Dados</li>
+        </ul>
+
+        <h2>Modelo de Dados</h2>
+        <p>Deve ser criado entidades e utilizar Migrations para estruturar os dados no banco.</p>
+
+        <h2>Requisitos</h2>
+        <ul>
+            <li class="check">🚧 Migrations - Criar entidades e executar a criação da estrutura dos dados no banco utilizando Migrations.</li>
+            <li class="check">🏷️ CRUD de Tags - Desenvolver a tela de visualização das Tags cadastradas.</li>
+            <li class="check">🔍 Pesquisa de Tags - Na tela de visualização de Tags, desenvolver um campo de pesquisa por descrição da Tag.</li>
+            <li class="check">❌ Exclusão de Tags - Validar se uma Tag está vinculada a uma notícia antes de excluir.</li>
+            <li class="check">📰 Visualização de Notícias - Desenvolver a tela de visualização das notícias cadastradas em forma de tabela.</li>
+            <li class="check">✏️ Cadastro e Edição de Notícias - Desenvolver a tela de cadastro e edição de notícia.</li>
+            <li class="check">🧼 Funcionalidade de Limpeza de Formulário - Implementar um botão que limpe os campos do formulário com Javascript.</li>
+            <li class="close">✔️ Validações - Realize validações Server-Side e também em Javascript antes de salvar o registro.</li>
+        </ul>
+
+        <h2>Critérios de Avaliação</h2>
+        <p>Será avaliado o uso de Migrations, Entity Framework, HTML, Razor, Javascript, funcionalidades, estrutura MVC e a organização do código.</p>
+
+        <h2>Entrega do Teste</h2>
+        <p>Enviar o projeto implementado juntamente com o arquivo de banco de dados (ou script para criação do mesmo).</p>
+    </div>
+</body>
+</html>
+
