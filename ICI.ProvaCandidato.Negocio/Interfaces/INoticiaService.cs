@@ -7,6 +7,7 @@ namespace ICI.ProvaCandidato.Negocio.Interfaces
     public interface INoticiaService
     {
         Task<IEnumerable<NoticiaDto>> GetAllAsync(string searchTerm = null);
+        Task<IEnumerable<TagDto>> GetAllTagsAsync();
         Task<NoticiaDto> GetByIdAsync(int id);
         Task<NoticiaDto> CreateAsync(NoticiaDto noticia);
         Task<NoticiaDto> UpdateAsync(NoticiaDto noticia);

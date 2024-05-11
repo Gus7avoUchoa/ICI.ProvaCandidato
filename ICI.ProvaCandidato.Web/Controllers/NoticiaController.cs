@@ -1,6 +1,7 @@
 ﻿using ICI.ProvaCandidato.Negocio.DTOs;
 using ICI.ProvaCandidato.Negocio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;
 
 namespace ICI.ProvaCandidato.Web.Controllers
@@ -22,9 +23,10 @@ namespace ICI.ProvaCandidato.Web.Controllers
             return View(noticias);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             ViewData["Title"] = "Nova Notícia";
+            ViewBag.Tags = new SelectList(await _noticiaService.GetAllTagsAsync(), "Id", "Descricao");
             return View("Form");
         }
 
@@ -36,6 +38,7 @@ namespace ICI.ProvaCandidato.Web.Controllers
                 await _noticiaService.CreateAsync(noticiaDto);
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Tags = new SelectList(await _noticiaService.GetAllTagsAsync(), "Id", "Descricao", noticiaDto.NoticiasTags);
             return View("Form", noticiaDto);
         }
 
@@ -44,6 +47,7 @@ namespace ICI.ProvaCandidato.Web.Controllers
             ViewData["Title"] = "Editar Notícia";
             var noticia = await _noticiaService.GetByIdAsync(id);
             if (noticia is null) return NotFound();
+            ViewBag.Tags = new SelectList(await _noticiaService.GetAllTagsAsync(), "Id", "Descricao");
             return View("Form", noticia);
         }
 

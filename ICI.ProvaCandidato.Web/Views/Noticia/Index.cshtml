@@ -30,7 +30,10 @@
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model[0].Usuario)
-                        </th>                        
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].NoticiasTags)
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -50,6 +53,11 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.UsuarioId)
                             </td>
+                            <td>
+                                @foreach (var tag in item.NoticiasTags)
+                                {
+                                    <span class="badge badge-info">@tag.Descricao</span>
+                                }
                             <td>
                                 @await Html.PartialAsync("_ActionButtonsIndex", item.Id)
                             </td>

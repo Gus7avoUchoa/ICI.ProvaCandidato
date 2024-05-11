@@ -23,7 +23,8 @@ namespace ICI.ProvaCandidato.Web
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddDbContext<NoticiasContext>(options =>
+            services.AddControllersWithViews();
+            services.AddDbContext<NoticiasContext>(options =>
 				options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 			
 			// Camada de Negócio
@@ -37,8 +38,6 @@ namespace ICI.ProvaCandidato.Web
 			services.AddScoped<UsuarioRepository>();
 
 			services.AddAutoMapper(typeof(AutoMapperProfile));
-			
-			services.AddControllersWithViews();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

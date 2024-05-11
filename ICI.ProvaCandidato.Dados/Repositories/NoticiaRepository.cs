@@ -21,12 +21,17 @@ namespace ICI.ProvaCandidato.Dados.Repositories
             return await _context.Noticias.ToListAsync();
         }
 
+        public async Task<IEnumerable<Tag>> GetAllTagsAsync()
+        {
+            return await _context.Tags.ToListAsync();
+        }
+
         public async Task<Noticia> GetByIdAsync(int id)
         {
             return await _context.Noticias.FindAsync(id);
         }
 
-        public async Task<Noticia> CreateAsync(Noticia noticia)
+        public async Task<Noticia> CreateAsync(Noticia noticia, List<NoticiaTag> tags)
         {
             _context.Noticias.Add(noticia);
             await _context.SaveChangesAsync();

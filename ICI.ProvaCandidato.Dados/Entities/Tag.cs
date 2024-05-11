@@ -8,7 +8,7 @@ namespace ICI.ProvaCandidato.Dados.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
         [StringLength(100)]
         public string Descricao { get; set; }
 

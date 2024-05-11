@@ -41,7 +41,7 @@ Deve ser criado entidades e utilizar Migrations para estruturar os dados no banc
    - [x] Na tela de cadastro e edição, implementar um botão que limpe os campos do formulário, executando essa ação com Javascript.
 
 8. ✔️ Validações
-   - [ ] Realize validações Server-Side e também em Javascript antes de salvar o registro.
+   - [x] Realize validações Server-Side e também em Javascript antes de salvar o registro.
 
 ## Critérios de Avaliação
 Será avaliado o uso de Migrations, Entity Framework, HTML, Razor, Javascript, funcionalidades, estrutura MVC e a organização do código.

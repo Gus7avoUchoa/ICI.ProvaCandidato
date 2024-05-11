@@ -30,6 +30,12 @@ namespace ICI.ProvaCandidato.Negocio.Services
             return _mapper.Map<IEnumerable<NoticiaDto>>(noticias);
         }
 
+        public async Task<IEnumerable<TagDto>> GetAllTagsAsync()
+        {
+            var tags = await _noticiaRepository.GetAllTagsAsync();
+            return _mapper.Map<IEnumerable<TagDto>>(tags);
+        }
+
         public async Task<NoticiaDto> GetByIdAsync(int id)
         {
             var noticias = await _noticiaRepository.GetByIdAsync(id);
@@ -40,7 +46,12 @@ namespace ICI.ProvaCandidato.Negocio.Services
         public async Task<NoticiaDto> CreateAsync(NoticiaDto noticiaDto)
         {
             var noticia = _mapper.Map<Noticia>(noticiaDto);
-            var createdNoticia = await _noticiaRepository.CreateAsync(noticia);
+            foreach (var tag in noticiaDto.TagIds)
+            {
+                noticia.NoticiasTags.Add(new NoticiaTag { TagId = tag });
+            }
+            var noticiaTags = _mapper.Map<List<NoticiaTag>>(noticia.NoticiasTags);
+            var createdNoticia = await _noticiaRepository.CreateAsync(noticia, noticiaTags);
             return _mapper.Map<NoticiaDto>(createdNoticia);
         }
 
