@@ -46,5 +46,10 @@ namespace ICI.ProvaCandidato.Dados.Repositories
             _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<bool> UserExists(int UserId)
+        {
+            return await _context.Usuarios.AnyAsync(nt => nt.Id == UserId);
+        }
     }
 }

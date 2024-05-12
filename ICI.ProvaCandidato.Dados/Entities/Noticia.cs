@@ -22,6 +22,6 @@ namespace ICI.ProvaCandidato.Dados.Entities
         public int UsuarioId { get; set; }
         public Usuario Usuario { get; set; }
 
-        public List<NoticiaTag> NoticiasTags { get; set; }
+        public List<NoticiaTag> NoticiasTags { get; set; } = new List<NoticiaTag>();
     }
 }

@@ -3,6 +3,7 @@ using ICI.ProvaCandidato.Dados.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ICI.ProvaCandidato.Dados.Repositories
@@ -44,6 +45,13 @@ namespace ICI.ProvaCandidato.Dados.Repositories
         {
             var noticiaTag = await _context.NoticiaTags.FindAsync(id) ?? throw new Exception("NotíciaTag não encontrada");
             _context.NoticiaTags.Remove(noticiaTag);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteByNoticiaAsync(int noticiaId)
+        {
+            var noticiaTags = await _context.NoticiaTags.Where(nt => nt.NoticiaId == noticiaId).ToListAsync();
+            _context.NoticiaTags.RemoveRange(noticiaTags);
             await _context.SaveChangesAsync();
         }
     }

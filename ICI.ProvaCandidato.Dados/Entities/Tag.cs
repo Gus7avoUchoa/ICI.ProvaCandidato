@@ -12,6 +12,6 @@ namespace ICI.ProvaCandidato.Dados.Entities
         [StringLength(100)]
         public string Descricao { get; set; }
 
-        public List<NoticiaTag> NoticiasTags { get; set; }
+        public List<NoticiaTag> NoticiasTags { get; set; } = new List<NoticiaTag>();
     }
 }

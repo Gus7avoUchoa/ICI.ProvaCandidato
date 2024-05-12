@@ -12,11 +12,13 @@ namespace ICI.ProvaCandidato.Negocio.Services
     public class NoticiaService : INoticiaService
     {
         private readonly NoticiaRepository _noticiaRepository;
+        private readonly UsuarioRepository _usuarioRepository;
         private readonly IMapper _mapper;
 
-        public NoticiaService(NoticiaRepository noticiaRepository, IMapper mapper)
+        public NoticiaService(NoticiaRepository noticiaRepository, UsuarioRepository usuarioRepository, IMapper mapper)
         {
             _noticiaRepository = noticiaRepository;
+            _usuarioRepository = usuarioRepository;
             _mapper = mapper;
         }
 
@@ -46,25 +48,25 @@ namespace ICI.ProvaCandidato.Negocio.Services
         public async Task<NoticiaDto> CreateAsync(NoticiaDto noticiaDto)
         {
             var noticia = _mapper.Map<Noticia>(noticiaDto);
-            foreach (var tag in noticiaDto.TagIds)
-            {
-                noticia.NoticiasTags.Add(new NoticiaTag { TagId = tag });
-            }
-            var noticiaTags = _mapper.Map<List<NoticiaTag>>(noticia.NoticiasTags);
-            var createdNoticia = await _noticiaRepository.CreateAsync(noticia, noticiaTags);
+            var createdNoticia = await _noticiaRepository.CreateAsync(noticia, noticiaDto.TagIds);
             return _mapper.Map<NoticiaDto>(createdNoticia);
         }
 
         public async Task<NoticiaDto> UpdateAsync(NoticiaDto noticiaDto)
         {
             var noticia = _mapper.Map<Noticia>(noticiaDto);
-            var updatedNoticia = await _noticiaRepository.UpdateAsync(noticia);
+            var updatedNoticia = await _noticiaRepository.UpdateAsync(noticia, noticiaDto.TagIds);
             return _mapper.Map<NoticiaDto>(updatedNoticia);
         }
 
         public async Task DeleteAsync(int id)
         {
             await _noticiaRepository.DeleteAsync(id);
+        }
+
+        public async Task<bool> UserExists(int id)
+        {
+            return await _usuarioRepository.UserExists(id);
         }
     }
 }

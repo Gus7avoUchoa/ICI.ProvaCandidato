@@ -69,6 +69,12 @@ namespace ICI.ProvaCandidato.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(TagDto tagDto)
         {
+            var isTagInUse = await _tagService.IsTagInUse(tagDto.Id);
+            if (isTagInUse)
+            {
+                TempData["Error"] = "A tag não pode ser excluída pois está sendo utilizada em uma notícia.";
+                return RedirectToAction(nameof(Delete));
+            }
             await _tagService.DeleteAsync(tagDto.Id);
             return RedirectToAction(nameof(Index));
         }

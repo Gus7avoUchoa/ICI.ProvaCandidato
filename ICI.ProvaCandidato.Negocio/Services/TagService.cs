@@ -12,11 +12,13 @@ namespace ICI.ProvaCandidato.Negocio.Services
     public class TagService : ITagService
     {
         private readonly TagRepository _tagRepository;
+        private readonly NoticiaRepository _noticiaRepository;
         private readonly IMapper _mapper;
 
-        public TagService(TagRepository tagRepository, IMapper mapper)
+        public TagService(TagRepository tagRepository, NoticiaRepository noticiaRepository, IMapper mapper)
         {
             _tagRepository = tagRepository;
+            _noticiaRepository = noticiaRepository;
             _mapper = mapper;
         }
 
@@ -54,6 +56,11 @@ namespace ICI.ProvaCandidato.Negocio.Services
         public async Task DeleteAsync(int id)
         {
             await _tagRepository.DeleteAsync(id);
+        }
+
+        public async Task<bool> IsTagInUse(int id)
+        {
+            return await _noticiaRepository.IsTagInUse(id);
         }
     }
 }

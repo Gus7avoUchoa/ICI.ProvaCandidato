@@ -11,5 +11,6 @@ namespace ICI.ProvaCandidato.Negocio.Interfaces
         Task<TagDto> CreateAsync(TagDto tag);
         Task<TagDto> UpdateAsync(TagDto tag);
         Task DeleteAsync(int id);
+        Task<bool> IsTagInUse(int id);
     }
 }

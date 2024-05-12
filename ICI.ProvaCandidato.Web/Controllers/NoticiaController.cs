@@ -1,7 +1,10 @@
 ﻿using ICI.ProvaCandidato.Negocio.DTOs;
 using ICI.ProvaCandidato.Negocio.Interfaces;
+using ICI.ProvaCandidato.Negocio.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ICI.ProvaCandidato.Web.Controllers
@@ -33,6 +36,13 @@ namespace ICI.ProvaCandidato.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(NoticiaDto noticiaDto)
         {
+            var userExists = await _noticiaService.UserExists(noticiaDto.UsuarioId);
+            if (!userExists)
+            {
+                TempData["Error"] = "Usuário não existe.";
+                return RedirectToAction(nameof(Create));
+            }
+
             if (ModelState.IsValid)
             {
                 await _noticiaService.CreateAsync(noticiaDto);
@@ -45,10 +55,11 @@ namespace ICI.ProvaCandidato.Web.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             ViewData["Title"] = "Editar Notícia";
-            var noticia = await _noticiaService.GetByIdAsync(id);
-            if (noticia is null) return NotFound();
-            ViewBag.Tags = new SelectList(await _noticiaService.GetAllTagsAsync(), "Id", "Descricao");
-            return View("Form", noticia);
+            var noticiaDto = await _noticiaService.GetByIdAsync(id);
+            if (noticiaDto is null) return NotFound();
+            var allTags = await _noticiaService.GetAllTagsAsync();
+            ViewBag.Tags = new SelectList(allTags, "Id", "Descricao", noticiaDto.NoticiasTags.Select(nt => nt.Id).ToList());
+            return View("Form", noticiaDto);
         }
 
         [HttpPost]

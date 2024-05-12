@@ -24,6 +24,8 @@ namespace ICI.ProvaCandidato.Negocio.DTOs
         public Usuario Usuario { get; set; }
 
         public List<TagDto> NoticiasTags { get; set; }
+
+        [Required(ErrorMessage = "O campo Tags é obrigatório.")]
         public List<int> TagIds { get; set; }
     }
 }

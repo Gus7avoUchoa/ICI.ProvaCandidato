@@ -12,5 +12,6 @@ namespace ICI.ProvaCandidato.Negocio.Interfaces
         Task<NoticiaDto> CreateAsync(NoticiaDto noticia);
         Task<NoticiaDto> UpdateAsync(NoticiaDto noticia);
         Task DeleteAsync(int id);
+        Task<bool> UserExists(int id);
     }
 }

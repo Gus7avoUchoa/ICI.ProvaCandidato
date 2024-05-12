@@ -12,8 +12,6 @@ namespace ICI.ProvaCandidato.Negocio.Mappers
             // Mapeamento de entidades para DTOs
             CreateMap<Tag, TagDto>();
             CreateMap<Noticia, NoticiaDto>();
-            //.ForMember(dest => dest.Usuario, opt => opt.MapFrom(src => src.Usuario.Nome))
-            //.ForMember(TagDto => TagDto.NoticiasTags, opt => opt.MapFrom(src => src.NoticiasTags.Select(t => t.Tag)));
             CreateMap<NoticiaTag, NoticiaTagDto>();
             CreateMap<Usuario, UsuarioDto>();
 

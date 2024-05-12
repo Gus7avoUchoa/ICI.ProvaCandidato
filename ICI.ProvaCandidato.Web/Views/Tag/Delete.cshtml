@@ -1,10 +1,16 @@
 ﻿@model ICI.ProvaCandidato.Negocio.DTOs.TagDto
 
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+
 <div>
     <h1>@ViewData["Title"]</h1>
     <br />
 
-    @* Implementar verficação de relação *@
     <p>Tem certeza que deseja <i>excluir</i> a tag: <strong>@Model.Descricao</strong></p>
     <form method="post">
         <button type="submit" class="btn btn-danger">Excluir</button>
